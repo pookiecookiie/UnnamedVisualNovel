@@ -70,11 +70,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text" type="TextEdit" parent="Text/Box/Margin"]
+[node name="TextEditor" type="TextEdit" parent="Text/Box/Margin"]
+visible = false
 margin_left = 32.0
 margin_top = 16.0
 margin_right = 906.0
-margin_bottom = 175.0
+margin_bottom = 176.0
 custom_styles/read_only = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 1 )
@@ -93,6 +94,18 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Text" type="RichTextLabel" parent="Text/Box/Margin"]
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 906.0
+margin_bottom = 176.0
+focus_mode = 2
+custom_fonts/normal_font = ExtResource( 1 )
+visible_characters = 0
+percent_visible = 0.0
+scroll_following = true
+selection_enabled = true
 
 [node name="NameEdit" type="LineEdit" parent="Text"]
 anchor_left = 0.032538
