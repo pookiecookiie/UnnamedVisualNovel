@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/Raleway/Raleway_bold_16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/295-2956471_doki-doki-literature-club-monika-sprite-hd-png.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/Raleway/Name_Raleway_bold_16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/DialogBox/DialogBox.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0.8, 0.4, 0.705882 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0.8, 0.4, 0.705882 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+
+[node name="DialogBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.943848
+margin_top = -0.943878
+margin_right = -0.943848
+margin_bottom = -0.943848
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 51.0
+margin_top = 400.0
+margin_right = -50.9999
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box" type="Panel" parent="Text"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="Text/Box"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="TextEdit" parent="Text/Box/Margin"]
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 906.0
+margin_bottom = 175.0
+custom_styles/read_only = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/caret_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/background_color = Color( 0, 0, 0, 1 )
+custom_colors/current_line_color = Color( 1, 0.8, 0.4, 0.705882 )
+custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
+text = "Lorem ipsum, dolor sit amet."
+highlight_current_line = true
+smooth_scrolling = true
+wrap_enabled = true
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameEdit" type="LineEdit" parent="Text"]
+anchor_left = 0.032538
+anchor_top = -0.16
+anchor_right = 0.234273
+margin_right = -36.0
+rect_min_size = Vector2( 180, 32 )
+custom_styles/read_only = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.4, 0.55, 1, 1 )
+custom_colors/font_color_uneditable = Color( 0.4, 0.54902, 1, 1 )
+text = "Character name here"
+align = 1
+max_length = 20
+editable = false
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="Text/NameEdit"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
