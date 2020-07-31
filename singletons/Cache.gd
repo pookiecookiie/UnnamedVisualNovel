@@ -44,11 +44,11 @@ func _on_data_saved(data, key):
 
 
 func _on_cache_saved(data):
-	emit_signal("info", "Cache SAVED\nCache: " + str(cache), "Cache")
+	emit_signal("info", "Cache SAVED\nCache: " + str(data), "Cache")
 
 
 func _on_cache_loaded(data):
-	emit_signal("info", "Cache LOADED\nCache: " + str(cache), "Cache")
+	emit_signal("info", "Cache LOADED\nCache: " + str(data), "Cache")
 
 
 func store(key, data:Dictionary):
@@ -88,6 +88,7 @@ func load_cache():
 	if !cached_data:
 		# If for some reason Null gets saved to the cache
 		# just make it an empty object
+		emit_signal("warn", "Cache is broken or empty. " + str(cached_data), "Cache")
 		cached_data = {}
 	
 	emit_signal("cache_loaded", cached_data)

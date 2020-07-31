@@ -11,10 +11,10 @@ var editing : bool = false
 var is_playing : bool = false
 
 var dialog_speed : float = 1
-var lines : Array = []
+var dialog_line : int = 0
 
 
-signal finished_dialog_animation
+signal line_animation_finished
 
 # Debug
 signal error(message, from)
@@ -31,7 +31,7 @@ func _ready():
 	connect("info", Debug, "_on_info")
 	connect("success", Debug, "_on_success")
 	
-	connect("finished_dialog_animation", self, "_on_dialog_animation_finish")
+	connect("line_animation_finished", self, "_on_line_animation_finished")
 	
 	update_editing_mode()
 	load_dialog()
@@ -46,50 +46,51 @@ func _input(event:InputEvent):
 	if event.is_action_pressed("middle_click"):
 		toggle_editing_mode()
 	
-	if event.is_action_pressed("enter"):
+	if event.is_action_pressed("left_click"):
 		play_dialog()
 
-func _on_dialog_animation_finished():
-	print("Finished Dialog")
+
+func _on_line_animation_finished():
+	print("Finished line")
 
 
 func update_dialog(dialog:Dictionary):
-	NameEdit.text = dialog.name
-	TextEditor.text = dialog.text
-	Text.text = dialog.text
-
-
-func save_dialog():
-	var dialog_to_save = {
-		"name": NameEdit.text,
-		"text": TextEditor.text
-	}
+	if dialog_line >= dialog.lines.size():
+		dialog_line = 0
+		return
 	
-	Cache.store("dialogX", dialog_to_save)
+	NameEdit.text = dialog.name
+	
+	TextEditor.text = dialog.lines[dialog_line].text
+	Text.text = dialog.lines[dialog_line].text
+	
+	self.dialog_speed = dialog.lines[dialog_line].text_speed
 
 
 func load_dialog():
-	var dialog_to_save = {
-		"name": Cache.cache.dialogX.name,
-		"text": Cache.cache.dialogX.text
-	}
-	update_dialog(dialog_to_save)
+	yield(Cache, "cache_loaded")
+	var dialog = Cache.cache.dialogX[0]
+	update_dialog(dialog)
 
 
 func step_dialog_animation(delta):
+	var speed_tuning = .7
 	if Text.percent_visible < 1:
-		Text.percent_visible += (dialog_speed) * delta
+		Text.percent_visible += speed_tuning * dialog_speed * delta
 	else:
 		is_playing = false
-		emit_signal("finished_dialog_animation")
+		emit_signal("line_animation_finished")
 
 
 func play_dialog():
+	update_dialog(Cache.cache.dialogX[0])
 	# Cannot play the dialog when editing
+	Text.percent_visible = 0
 	self.editing = false
 	update_editing_mode()
 	
 	is_playing = true
+	dialog_line+=1
 
 
 func update_editing_mode():

@@ -44,9 +44,10 @@ __meta__ = {
 [node name="Text" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 51.0
-margin_top = 400.0
-margin_right = -50.9999
+margin_left = 128.0
+margin_top = 456.0
+margin_right = -128.0
+margin_bottom = -16.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -74,8 +75,8 @@ __meta__ = {
 visible = false
 margin_left = 32.0
 margin_top = 16.0
-margin_right = 906.0
-margin_bottom = 176.0
+margin_right = 752.0
+margin_bottom = 103.0
 custom_styles/read_only = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 1 )
@@ -86,7 +87,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/background_color = Color( 0, 0, 0, 1 )
 custom_colors/current_line_color = Color( 1, 0.8, 0.4, 0.705882 )
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
-text = "Lorem ipsum, dolor sit amet."
+text = "DEFAULT TEXT"
 highlight_current_line = true
 smooth_scrolling = true
 wrap_enabled = true
@@ -98,21 +99,23 @@ __meta__ = {
 [node name="Text" type="RichTextLabel" parent="Text/Box/Margin"]
 margin_left = 32.0
 margin_top = 16.0
-margin_right = 906.0
-margin_bottom = 176.0
+margin_right = 752.0
+margin_bottom = 103.0
 focus_mode = 2
 custom_fonts/normal_font = ExtResource( 1 )
 visible_characters = 0
 percent_visible = 0.0
+text = "DEFAULT TEXT"
 scroll_following = true
 selection_enabled = true
 
 [node name="NameEdit" type="LineEdit" parent="Text"]
-anchor_left = 0.032538
-anchor_top = -0.16
-anchor_right = 0.234273
-margin_right = -36.0
-rect_min_size = Vector2( 180, 32 )
+anchor_left = 0.0325521
+anchor_top = -0.25
+anchor_right = 0.339844
+margin_right = -16.0
+rect_min_size = Vector2( 220, 32 )
+size_flags_horizontal = 3
 custom_styles/read_only = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 3 )
@@ -121,10 +124,11 @@ custom_colors/cursor_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 0.4, 0.55, 1, 1 )
 custom_colors/font_color_uneditable = Color( 0.4, 0.54902, 1, 1 )
-text = "Character name here"
+text = "Monika"
 align = 1
 max_length = 20
 editable = false
+expand_to_text_length = true
 caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": true
