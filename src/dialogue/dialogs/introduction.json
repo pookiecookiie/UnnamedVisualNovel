@@ -1,0 +1,176 @@
+{
+    "000": {
+        "name": "Testo",
+        "text": "Hi! my name is @Testo@!",
+        "characters": [
+            {"name": "Testo", "emotion": "excited"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#0000FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "001": {
+        "name": "Testo",
+        "text": "I will be helping the dev with making sure that everything is working correctly, or if anything breaks i must tell him about it.",
+        "characters": [
+            {"name": "Testo", "emotion": "neutral"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#0000FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "002": {
+        "name": "Testo",
+        "text": "I really like doing it, because it makes me feel so alive when i'm doing it, I actually love to help others!",
+        "characters": [
+            {"name": "Testo", "emotion": "happy"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#0000FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "003": {
+        "name": "Testo",
+        "text": "I'm happy to be able to do this for a living today.",
+        "characters": [
+            {"name": "Testo", "emotion": "happy"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#0000FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "004": {
+        "name": "Testo",
+        "text": "Anyway, I was introducing you to this demo, i'm sorry, sometimes i ramble a bit too much.",
+        "characters": [
+            {"name": "Testo", "emotion": "neutral"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#0000FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "005": {
+        "name": "Testo",
+        "text": "I would like you to meet @Testa@. She is also going to be helping you along with me! Isn't it great?",
+        "characters": [
+            {"name": "Testo", "emotion": "excited"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#0000FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "006": {
+        "name": "Testa",
+        "text": "That is righty, @Testo@! I am going to be helping the dev as well, hope I can be useful, because I'm new here, please be patient with me!",
+        "characters": [
+            {"name": "Testo", "emotion": "neutral"},
+            {"name": "Testa", "emotion": "excited"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#FF00FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "007": {
+        "name": "Testa",
+        "text": "First of all, look at all my emotions, wink wink.",
+        "characters": [
+            {"name": "Testo", "emotion": "neutral"},
+            {"name": "Testa", "emotion": "happy"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#FF00FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "008": {
+        "name": "Testa",
+        "text": "Don't i look great? hahaha.",
+        "characters": [
+            {"name": "Testo", "emotion": "neutral"},
+            {"name": "Testa", "emotion": "blushing"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#FF00FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "009": {
+        "name": "Testa",
+        "text": "Ok, i'll stop now. but as we know already, this is just a test conversation..",
+        "characters": [
+            {"name": "Testo", "emotion": "neutral"},
+            {"name": "Testa", "emotion": "neutral"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#FF00FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "010": {
+        "name": "Testa",
+        "text": "I think this is my last line isn't it? so i'd like to say thanks for the opportunity, along with @Testo@ to help develop this lil game!!",
+        "characters": [
+            {"name": "Testo", "emotion": "neutral"},
+            {"name": "Testa", "emotion": "happy"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#FF00FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    },
+    "011": {
+        "name": "Testa",
+        "text": "...",
+        "characters": [
+            {"name": "Testo", "emotion": "shocked"},
+            {"name": "Testa", "emotion": "shocked"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1,
+        "name_font": "raleway",
+        "name_color": "#FF00FF",
+        "text_font": "raleway",
+        "text_color": "#FFFFFF"
+    }
+}

@@ -1,0 +1,53 @@
+[gd_resource type="Resource" load_steps=12 format=2]
+
+[ext_resource path="res://src/dialogue/characters/Character.gd" type="Script" id=1]
+[ext_resource path="res://assets/characters/testo/PC Computer - Eastern Starlight Romance Demo 30 - Rinnosuke Morichika.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+
+[sub_resource type="AtlasTexture" id=2]
+
+[sub_resource type="AtlasTexture" id=3]
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 40, 810, 387, 674 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 520, 30, 396, 675 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 40, 30, 396, 675 )
+
+[sub_resource type="AtlasTexture" id=7]
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1000, 810, 387, 674 )
+
+[sub_resource type="AtlasTexture" id=9]
+
+[resource]
+script = ExtResource( 1 )
+display_name = "Testo"
+backstory = "Testo is a test character. Don't tell him tho! he might get shocked"
+sprite_sheet = SubResource( 8 )
+emotions = {
+"angry": SubResource( 1 ),
+"blushing": SubResource( 2 ),
+"confused": SubResource( 3 ),
+"excited": SubResource( 4 ),
+"happy": SubResource( 5 ),
+"neutral": SubResource( 6 ),
+"sad": SubResource( 7 ),
+"shocked": SubResource( 8 ),
+"that_face": SubResource( 9 )
+}

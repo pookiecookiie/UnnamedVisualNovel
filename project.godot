@@ -8,19 +8,27 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "DialoguePlayer",
+"language": "GDScript",
+"path": "res://src/dialogue/DialogPlayer.gd"
+} ]
 _global_script_class_icons={
-
+"DialoguePlayer": ""
 }
 
 [application]
 
 config/name="UnnamedVisualNovel"
+run/main_scene="res://src/dialogue/DialogBox.tscn"
 
 [autoload]
 
-Debug="*res://singletons/Debug.gd"
-Cache="*res://singletons/Cache.gd"
+Debug="*res://src/singletons/Debug.gd"
+Cache="*res://src/singletons/Cache.gd"
+Loader="*res://src/singletons/Loader.gd"
+DialogDatabase="*res://src/singletons/DialogDatabase.gd"
 
 [display]
 
