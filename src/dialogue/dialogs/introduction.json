@@ -1,7 +1,7 @@
 {
     "000": {
         "name": "Testo",
-        "text": "Hi! my name is @Testo@!",
+        "text": "Hi! my name is [character name=Testo]Testo[/character]!",
         "characters": [
             {"name": "Testo", "emotion": "excited"}
         ],
@@ -71,7 +71,7 @@
     },
     "005": {
         "name": "Testo",
-        "text": "I would like you to meet @Testa@. She is also going to be helping you along with me! Isn't it great?",
+        "text": "I would like you to meet [character name=Testa]Testa[/character]. She is also going to be helping you along with me! Isn't it great?",
         "characters": [
             {"name": "Testo", "emotion": "excited"}
         ],
@@ -85,7 +85,7 @@
     },
     "006": {
         "name": "Testa",
-        "text": "That is righty, @Testo@! I am going to be helping the dev as well, hope I can be useful, because I'm new here, please be patient with me!",
+        "text": "That is righty, [character name=Testo]Testo[/character]! I am going to be helping the dev as well, hope I can be useful, because I'm new here, please be patient with me!",
         "characters": [
             {"name": "Testo", "emotion": "neutral"},
             {"name": "Testa", "emotion": "excited"}
@@ -145,7 +145,7 @@
     },
     "010": {
         "name": "Testa",
-        "text": "I think this is my last line isn't it? so i'd like to say thanks for the opportunity, along with @Testo@ to help develop this lil game!!",
+        "text": "I think this is my last line isn't it? so i'd like to say thanks for the opportunity, along with [character name=Testo]Testo[/character] to help develop this lil game!!",
         "characters": [
             {"name": "Testo", "emotion": "neutral"},
             {"name": "Testa", "emotion": "happy"}

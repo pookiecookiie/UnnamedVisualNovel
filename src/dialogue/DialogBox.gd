@@ -16,22 +16,21 @@ signal warn(message, from)
 signal info(message, from)
 signal success(message, from)
  
-var started = false
+
 func _ready():
 	connect("error", Debug, "_on_error")
 	connect("warn", Debug, "_on_warn")
 	connect("info", Debug, "_on_info")
 	connect("success", Debug, "_on_success")
-	if not started:
-		started = true
-		DialogPlayer.start(Loader.get_dialog("introduction"))
-
-func _input(event):
-	if Input.is_mouse_button_pressed(1):
-		DialogPlayer.next()
 	
+	DialogPlayer.start(Loader.get_dialog("introduction"))
 	update_content(DialogPlayer)
-	
+
+
+func _process(delta):
+	if Input.is_action_just_pressed("left_click"):
+		DialogPlayer.next()
+		update_content(DialogPlayer)
 
 
 func update_content(content):
@@ -41,7 +40,10 @@ func update_content(content):
 	var background = Loader.get_background(content.background)
 	Background.texture = background
 	TextEditor.text = content.text # Interpolate this later
-	Text.text = content.text # Interpolate?
+	Text.add_font_override("normal_font", Loader.get_font("raleway"))
+	Text.bbcode_text = content.text # Interpolate?
+	NameEdit.add_font_override("font", Loader.get_font("raleway_name"))
+	NameEdit.add_color_override("font_color_uneditable", Loader.get_character(content.title).color)
 	NameEdit.text = content.title
 	
 	for character in content.characters:

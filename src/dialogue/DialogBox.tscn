@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://src/dialogue/fonts/raleway_name.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/TextEffects/CharacterEffect.gd" type="Script" id=2]
 [ext_resource path="res://src/dialogue/fonts/raleway.tres" type="DynamicFont" id=3]
 [ext_resource path="res://src/dialogue/DialogBox.gd" type="Script" id=4]
 [ext_resource path="res://src/dialogue/DialogPlayer.gd" type="Script" id=5]
@@ -14,7 +14,10 @@ corner_radius_top_right = 16
 bg_color = Color( 0, 0, 0, 1 )
 draw_center = false
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="RichTextEffect" id=3]
+script = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 0.8, 0.4, 0.705882 )
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -34,6 +37,8 @@ __meta__ = {
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 3.36353
+margin_right = 3.36353
 expand = true
 stretch_mode = 1
 __meta__ = {
@@ -43,8 +48,6 @@ __meta__ = {
 [node name="PropsContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 99.0
-margin_right = -103.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -108,10 +111,9 @@ margin_left = 32.0
 margin_top = 16.0
 margin_right = 752.0
 margin_bottom = 104.0
-focus_mode = 2
-custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
 scroll_following = true
-selection_enabled = true
+custom_effects = [ SubResource( 3 ) ]
 
 [node name="NameEdit" type="LineEdit" parent="Text"]
 anchor_left = 0.0325521
@@ -121,12 +123,6 @@ rect_min_size = Vector2( 220, 32 )
 size_flags_horizontal = 3
 custom_styles/read_only = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
-custom_fonts/font = ExtResource( 1 )
-custom_colors/selection_color = Color( 0, 0, 0, 1 )
-custom_colors/cursor_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 0.4, 0.55, 1, 1 )
-custom_colors/font_color_uneditable = Color( 0.4, 0.54902, 1, 1 )
 align = 1
 max_length = 20
 editable = false
@@ -141,7 +137,7 @@ show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

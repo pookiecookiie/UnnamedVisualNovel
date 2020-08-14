@@ -8,8 +8,15 @@ signal finished
 var title: String = ""
 var text: String = ""
 var background: String = ""
-var characters: Array = [] # what characters to display and where
-var props: Array = [] # what props to display... maybe
+var characters: Array = [] # what characters to display
+var props: Array = [] # what props to display secondary characters, etc.
+
+var text_speed = 1
+var name_font = ""
+var name_color = ""
+var text_font = ""
+var text_color = ""
+
 
 var _conversation: Array
 var _index_current: int = 0
@@ -26,6 +33,8 @@ func start(dialogue_dict):
 
 func next():
 	if _index_current+1 >= _conversation.size():
+		get_parent().get_node("Text").hide()
+		get_parent().get_node("PropsContainer").hide()
 		return
 	
 	_index_current += 1
@@ -39,6 +48,11 @@ func _update():
 	background = _conversation[_index_current].background
 	characters = _conversation[_index_current].characters
 	props = _conversation[_index_current].props
+	text_speed = _conversation[_index_current].text_speed
+	name_font = _conversation[_index_current].name_font
+	name_color = _conversation[_index_current].name_color
+	text_font = _conversation[_index_current].text_font
+	text_color = _conversation[_index_current].text_color
 	
 	if _index_current == _conversation.size() - 1:
 		emit_signal("finished")

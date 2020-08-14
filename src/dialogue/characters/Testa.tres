@@ -3,6 +3,12 @@
 [ext_resource path="res://src/dialogue/characters/Character.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/testa/PC Computer - Eastern Starlight Romance Demo 30 - Remilia Scarlet.png" type="Texture" id=2]
 
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1320, 30, 570, 487 )
+filter_clip = true
+
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 2 )
@@ -10,12 +16,6 @@ region = Rect2( 1320, 30, 570, 487 )
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1320, 30, 570, 487 )
-filter_clip = true
-
-[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 1080, 1231, 453, 486 )
@@ -43,15 +43,16 @@ filter_clip = true
 script = ExtResource( 1 )
 display_name = "Testa"
 backstory = "Testa is a test character. Don't tell her tho! She might get shocked."
+color = Color( 0.756863, 0, 1, 1 )
 sprite_sheet = SubResource( 5 )
 emotions = {
-"angry": SubResource( 2 ),
-"blushing": SubResource( 3 ),
-"confused": SubResource( 1 ),
+"angry": SubResource( 1 ),
+"blushing": SubResource( 2 ),
+"confused": SubResource( 3 ),
 "excited": SubResource( 4 ),
 "happy": SubResource( 5 ),
 "neutral": SubResource( 6 ),
-"sad": SubResource( 1 ),
-"shocked": SubResource( 1 ),
-"that_face": SubResource( 1 )
+"sad": SubResource( 3 ),
+"shocked": SubResource( 3 ),
+"that_face": SubResource( 3 )
 }

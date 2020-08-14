@@ -4,6 +4,7 @@ var backgrounds: Dictionary = {}
 var props: Dictionary = {}
 var characters: Dictionary = {}
 var dialogs: Dictionary = {}
+var fonts: Dictionary = {}
 
 
 func _ready():
@@ -15,6 +16,8 @@ func initialize():
 	props = load_all_from("res://src/dialogue/props/", ".tres")
 	characters = load_all_from("res://src/dialogue/characters/", ".tres")
 	dialogs = load_all_json_from("res://src/dialogue/dialogs/")
+	fonts = load_all_from("res://src/dialogue/fonts/", ".tres")
+	
 
 
 func get_background(name: String):
@@ -31,10 +34,14 @@ func get_prop(name: String):
 	return props[name]
 
 
-func get_character(name: String, emotion: String):
+func get_character(name: String, emotion: String=""):
 	if not characters.has(name):
 		print("Something went wrong when loading characters. %s" % name)
 		return {}
+	
+	if emotion.empty():
+		return characters[name]
+	
 	return characters[name].emotions[emotion]
 
 
@@ -44,6 +51,12 @@ func get_dialog(name: String):
 		return {}
 	return dialogs[name]
 
+
+func get_font(name: String):
+	if not fonts.has(name):
+		print("Something went wrong when loading a font. %s" % name)
+		return {}
+	return fonts[name] as DynamicFont
 
 
 
