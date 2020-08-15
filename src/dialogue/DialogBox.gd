@@ -3,10 +3,10 @@ extends Control
 export(bool) var debug = false
 
 onready var Background = $Background
-onready var TextEditor = $Text/Box/Margin/TextEditor
 onready var NameEdit = $Text/NameEdit
 onready var Text = $Text/Box/Margin/Text
 onready var DialogPlayer = $DialogPlayer
+onready var DialogAnimator = $DialogAnimator
 onready var PropsContainer = $PropsContainer
 
 
@@ -23,14 +23,29 @@ func _ready():
 	connect("info", Debug, "_on_info")
 	connect("success", Debug, "_on_success")
 	
+	DialogAnimator.connect("step_dialog_animation", self, "_on_step_dialog")
+	DialogAnimator.connect("end_dialog_animation", self, "_on_end_dialog")
+	
 	DialogPlayer.start(Loader.get_dialog("introduction"))
 	update_content(DialogPlayer)
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("left_click"):
-		DialogPlayer.next()
-		update_content(DialogPlayer)
+		if DialogAnimator.is_animating:
+			DialogAnimator.end_interpolation_animation()
+		else:
+			DialogAnimator.end_interpolation()
+			DialogPlayer.next()
+			update_content(DialogPlayer)
+
+
+func _on_step_dialog(percent_visible):
+	Text.percent_visible = percent_visible
+
+
+func _on_end_dialog():
+	pass
 
 
 func update_content(content):
@@ -39,10 +54,15 @@ func update_content(content):
 	
 	var background = Loader.get_background(content.background)
 	Background.texture = background
-	TextEditor.text = content.text # Interpolate this later
+	#TextEditor.text = content.text # Interpolate this later
 	Text.add_font_override("normal_font", Loader.get_font("raleway"))
-	Text.bbcode_text = content.text # Interpolate?
-	NameEdit.add_font_override("font", Loader.get_font("raleway_name"))
+	
+	Text.bbcode_text = content.text
+	DialogAnimator.set_interpolation_speed(content.text_speed)
+	DialogAnimator.start_interpolation()
+	
+	
+	NameEdit.add_font_override("font", Loader.get_font("raleway"))
 	NameEdit.add_color_override("font_color_uneditable", Loader.get_character(content.title).color)
 	NameEdit.text = content.title
 	

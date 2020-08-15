@@ -167,7 +167,7 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
+        "text_speed": 0.1,
         "name_font": "raleway",
         "name_color": "#FF00FF",
         "text_font": "raleway",
