@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://src/dialogue/characters/Character.gd" type="Script" id=1]
+
+[sub_resource type="AtlasTexture" id=1]
+
+[resource]
+script = ExtResource( 1 )
+display_name = "narrador"
+backstory = "He is the narrator."
+name_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+name_font = "raleway"
+text_color = Color( 1, 1, 1, 1 )
+text_font = "raleway"
+sprite_sheet = SubResource( 1 )
+emotions = {
+"angry": SubResource( 1 ),
+"blushing": SubResource( 1 ),
+"confused": SubResource( 1 ),
+"excited": SubResource( 1 ),
+"happy": SubResource( 1 ),
+"neutral": SubResource( 1 ),
+"sad": SubResource( 1 ),
+"shocked": SubResource( 1 ),
+"that_face": SubResource( 1 )
+}

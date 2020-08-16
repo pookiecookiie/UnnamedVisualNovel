@@ -7,11 +7,7 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#0000FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
+        "text_speed": 1
     },
     "001": {
         "name": "Testo",
@@ -21,11 +17,7 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#0000FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
+        "text_speed": 1
     },
     "002": {
         "name": "Testo",
@@ -35,11 +27,7 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#0000FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
+        "text_speed": 1
     },
     "003": {
         "name": "Testo",
@@ -49,11 +37,7 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#0000FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
+        "text_speed": 1
     },
     "004": {
         "name": "Testo",
@@ -63,11 +47,7 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#0000FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
+        "text_speed": 1
     },
     "005": {
         "name": "Testo",
@@ -77,11 +57,7 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#0000FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
+        "text_speed": 1
     },
     "006": {
         "name": "Testa",
@@ -92,11 +68,7 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#FF00FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
+        "text_speed": 1
     },
     "007": {
         "name": "Testa",
@@ -107,11 +79,7 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#FF00FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
+        "text_speed": 1
     },
     "008": {
         "name": "Testa",
@@ -122,11 +90,7 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#FF00FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
+        "text_speed": 1
     },
     "009": {
         "name": "Testa",
@@ -137,40 +101,6 @@
         ],
         "props": [],
         "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#FF00FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
-    },
-    "010": {
-        "name": "Testa",
-        "text": "I think this is my last line isn't it? so i'd like to say thanks for the opportunity, along with [character name=Testo]Testo[/character] to help develop this lil game!!",
-        "characters": [
-            {"name": "Testo", "emotion": "neutral"},
-            {"name": "Testa", "emotion": "happy"}
-        ],
-        "props": [],
-        "background": "Club",
-        "text_speed": 1,
-        "name_font": "raleway",
-        "name_color": "#FF00FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
-    },
-    "011": {
-        "name": "Testa",
-        "text": "...",
-        "characters": [
-            {"name": "Testo", "emotion": "shocked"},
-            {"name": "Testa", "emotion": "shocked"}
-        ],
-        "props": [],
-        "background": "Club",
-        "text_speed": 0.1,
-        "name_font": "raleway",
-        "name_color": "#FF00FF",
-        "text_font": "raleway",
-        "text_color": "#FFFFFF"
+        "text_speed": 1
     }
 }

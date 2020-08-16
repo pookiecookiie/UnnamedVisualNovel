@@ -22,32 +22,33 @@ func initialize():
 
 func get_background(name: String):
 	if not backgrounds.has(name):
-		print("Something went wrong when loading background. %s" % name)
+		print("Something went wrong when loading a background. %s" % name)
 		return {}
 	return backgrounds[name]
 
 
 func get_prop(name: String):
 	if not props.has(name):
-		print("Something went wrong when loading props. %s" % name)
+		print("Something went wrong when loading a prop. %s" % name)
 		return {}
 	return props[name]
 
 
 func get_character(name: String, emotion: String=""):
 	if not characters.has(name):
-		print("Something went wrong when loading characters. %s" % name)
+		print("Something went wrong when loading a character. %s" % name)
 		return {}
 	
 	if emotion.empty():
 		return characters[name]
 	
-	return characters[name].emotions[emotion]
+	if not characters[name].emotions.empty():
+		return characters[name].emotions[emotion]
 
 
 func get_dialog(name: String):
 	if not dialogs.has(name):
-		print("Something went wrong when loading dialog. %s" % name)
+		print("Something went wrong when loading a dialog. %s" % name)
 		return {}
 	return dialogs[name]
 

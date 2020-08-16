@@ -1,0 +1,21 @@
+{
+    "000": {
+        "name": "narrator",
+        "text": "Por favor, escolha uma opção.",
+        "characters": [
+            {"name": "narrator", "emotion": ""}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1
+    },
+    "001": {
+        "name": "narrator",
+        "title": "Escolha uma opção!",
+        "type": "question",
+        "choices": [
+            {"title": "OPÇÃO 1", "ramification": "ramification_1"},
+            {"title": "OPÇÃO 2", "ramification": "ramification_2"}
+        ]
+    }
+}

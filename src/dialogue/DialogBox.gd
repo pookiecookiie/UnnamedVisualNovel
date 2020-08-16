@@ -7,6 +7,7 @@ onready var NameEdit = $Text/NameEdit
 onready var Text = $Text/Box/Margin/Text
 onready var DialogPlayer = $DialogPlayer
 onready var DialogAnimator = $DialogAnimator
+onready var CharactersContainer = $CharactersContainer
 onready var PropsContainer = $PropsContainer
 
 
@@ -26,7 +27,7 @@ func _ready():
 	DialogAnimator.connect("step_dialog_animation", self, "_on_step_dialog")
 	DialogAnimator.connect("end_dialog_animation", self, "_on_end_dialog")
 	
-	DialogPlayer.start(Loader.get_dialog("introduction"))
+	DialogPlayer.start(Loader.get_dialog("choose_a_ramification"))
 	update_content(DialogPlayer)
 
 
@@ -49,29 +50,45 @@ func _on_end_dialog():
 
 
 func update_content(content):
-	for child in PropsContainer.get_children():
+	for child in CharactersContainer.get_children():
 		child.queue_free()
 	
+	
+	if true:
+		
+		pass
+		
+	
+	var character = Loader.get_character(content.title)
 	var background = Loader.get_background(content.background)
+	
 	Background.texture = background
-	#TextEditor.text = content.text # Interpolate this later
-	Text.add_font_override("normal_font", Loader.get_font("raleway"))
+	
+	Text.add_font_override("normal_font", Loader.get_font(character.text_font))
+	Text.add_color_override("default_color", character.text_color)
 	
 	Text.bbcode_text = content.text
 	DialogAnimator.set_interpolation_speed(content.text_speed)
 	DialogAnimator.start_interpolation()
 	
 	
-	NameEdit.add_font_override("font", Loader.get_font("raleway"))
-	NameEdit.add_color_override("font_color_uneditable", Loader.get_character(content.title).color)
+	NameEdit.add_font_override("font", Loader.get_font(character.name_font))
+	NameEdit.add_color_override("font_color_uneditable", character.name_color)
 	NameEdit.text = content.title
 	
-	for character in content.characters:
-		var chara = load("res://src/dialogue/characters/Chara.tscn").instance()
-		var chara_texture = Loader.get_character(character.name, character.emotion)
-		chara.set_texture(chara_texture)
-		PropsContainer.add_child(chara)
 	
+	for _character in content.characters:
+		var chara = load("res://src/dialogue/characters/Chara.tscn").instance()
+		var chara_texture = Loader.get_character(_character.name, _character.emotion)
+		chara.set_texture(chara_texture)
+		CharactersContainer.add_child(chara)
+
+
+
+func finished():
+	CharactersContainer.hide()
+	PropsContainer.hide()
+	Text.hide()
 	
 
 

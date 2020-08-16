@@ -42,7 +42,10 @@ region = Rect2( 40, 30, 396, 675 )
 script = ExtResource( 1 )
 display_name = "Testo"
 backstory = "Testo is a test character. Don't tell him tho! he might get shocked"
-color = Color( 0, 0, 1, 1 )
+name_color = Color( 0, 0.368627, 1, 1 )
+name_font = "raleway"
+text_color = Color( 0.652344, 0.780499, 1, 1 )
+text_font = "raleway"
 sprite_sheet = SubResource( 9 )
 emotions = {
 "angry": SubResource( 1 ),

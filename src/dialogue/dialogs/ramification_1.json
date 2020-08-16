@@ -1,0 +1,25 @@
+{
+    "000": {
+        "name": "Testo",
+        "text": "Obrigado por escolher a OPÇÃO 1!",
+        "characters": [
+            {"name": "Testo", "emotion": "excited"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1
+    },
+    "001": {
+        "name": "Testo",
+        "text": "Agora pode continuar o que você estava fazendo.",
+        "characters": [
+            {"name": "Testo", "emotion": "neutral"}
+        ],
+        "props": [],
+        "background": "Club",
+        "text_speed": 1
+    },
+    "002": {
+        "next": "choose_a_ramification"
+    }
+}

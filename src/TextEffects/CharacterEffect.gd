@@ -11,7 +11,7 @@ func _process_custom_fx(char_fx):
 	# Get the characters color
 	for character_obj in Loader.characters.values():
 		if character_obj.display_name == character:
-			character_color = character_obj.color
+			character_color = character_obj.name_color
 	
 	if not character_color:
 		push_error("Seems like no character was found with a given name")

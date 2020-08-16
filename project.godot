@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="UnnamedVisualNovel"
-run/main_scene="res://src/dialogue/DialogBox.tscn"
+run/main_scene="res://src/dialogue/Dialog.tscn"
 
 [autoload]
 
