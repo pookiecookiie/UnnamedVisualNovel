@@ -1,110 +1,68 @@
 extends Node
 
+signal started
+signal updated(text)
+signal finished
 
-signal step_dialog_animation(text)
-signal end_dialog_animation(text)
+var wait_time: float = 1
 
-var default_time: float = 0.1 # seconds
-var default_interpolation: float = 0.025 # Speed
-
+# Animating writting.
+# Can only be used if there are no bbcode tags such as [color=#FFF][/color]
+# It looks odd because it writes the tag letter by letter
+# Maybe fixable, but i just don't want to deal with it, for my purposes
+# It should work just fine
 var target_text: String = ""
 var current_text: String = ""
+var text_progress: int = 0
 
-var text_index: int = 0
-var text_speed: float = 1 # 100 % the default speed
-var percent_visible: float = 0
-var interpolation_speed: float = 1
 
 var is_animating: bool = false
 
+var parent
+
+
 func _ready():
-	connect("end_dialog_animation", self, "_on_end_dialog_animation")
-	set_text_speed(text_speed)
-	set_interpolation_speed(interpolation_speed)
-
-
-func _on_end_dialog_animation():
-	self.is_animating = false
-	current_text = ""
-	target_text = ""
-	text_index = 0
-	percent_visible = 0
-
-
-func set_interpolation_speed(speed):
-	interpolation_speed = default_interpolation * speed
-	$Interpolator.wait_time = interpolation_speed
-
-
-func start_interpolation():
-	if self.is_animating:
-		return
+	$Tween.connect("tween_started", self, "_on_tween_start")
+	$Tween.connect("tween_step", self, "_on_tween_step")
+	$Tween.connect("tween_completed", self, "_on_tween_completed")
 	
-	percent_visible = 0
-	self.is_animating = true
-	interpolate()
+	parent = get_parent()
+
+
+func _on_tween_start(object, key):
+	pass
+
+
+func _on_tween_step(object, key, elapsed, value):
+	pass
+
+
+func _on_tween_completed(object, key):
+	print("Finished  %s" % key)
+	$Tween.reset(object, key)
+	reset()
+	emit_signal("finished")
+
+
+
+func animate():
+	pass
 
 
 func interpolate():
-	$Interpolator.start()
-	yield($Interpolator, "timeout")
-	step_interpolation()
-
-
-func step_interpolation():
-	if percent_visible >= 1:
-		end_interpolation_animation()
-	else:
-		percent_visible += lerp(0, 1, interpolation_speed)
-		emit_signal("step_dialog_animation", percent_visible)
-		interpolate()
-
-
-func end_interpolation():
-	self.is_animating = false
-	percent_visible = 0
-	emit_signal("step_dialog_animation", percent_visible)
-	emit_signal("end_dialog_animation")
-
-
-func end_interpolation_animation():
-	self.is_animating = false
-	percent_visible = 1
-	emit_signal("step_dialog_animation", percent_visible)
-
-
-func set_text_speed(speed):
-	text_speed = default_time * (1/speed)
-
-
-#Might be buggy, because i didn't test it since i changed my mind on how it was
-# supposed to work, using percent_visible and not this stuff
-# First call
-func start_animation(text):
-	# End result text is this
-	target_text = text
 	self.is_animating = true
-	animate()
+	$Tween.interpolate_property(parent.Text, "percent_visible", 0, 1, wait_time)
+	$Tween.start()
+	
+
+func skip_interpolation():
+	$Tween.playback_speed = 10
 
 
-# Called to run the next animation step OR end the animation
-func animate():
-	$Timer.start()
-	yield($Timer, "timeout")
-	step()
 
-
-# Steps the animation
-func step():
-	if current_text != target_text:
-		current_text += target_text[text_index]
-		text_index += 1
-		emit_signal("step_dialog_animation", current_text)
-		animate()
-	else:
-		emit_signal("end_dialog_animation")
-
-
-func end_animation():
-	current_text = target_text
-	emit_signal("step_dialog_animation")
+func reset():
+	self.is_animating = false
+	current_text = ""
+	target_text = ""
+	text_progress = 0
+	$Tween.playback_speed = 1

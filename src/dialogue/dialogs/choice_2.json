@@ -1,25 +1,23 @@
 {
     "000": {
-        "name": "Testo",
-        "text": "Obrigado por escolher a OPÇÃO 1!",
+        "name": "Testa",
+        "text": "Obrigado por escolher a OPÇÂO 2!",
         "characters": [
-            {"name": "Testo", "emotion": "excited"}
+            {"name": "Testa", "emotion": "excited"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
     "001": {
-        "name": "Testo",
+        "name": "Testa",
         "text": "Agora pode continuar o que você estava fazendo.",
         "characters": [
-            {"name": "Testo", "emotion": "neutral"}
+            {"name": "Testa", "emotion": "neutral"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
     "002": {
-        "next": "choose_a_ramification"
+        "next": "choice_test"
     }
 }

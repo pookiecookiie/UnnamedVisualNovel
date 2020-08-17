@@ -23,40 +23,38 @@ func initialize():
 func get_background(name: String):
 	if not backgrounds.has(name):
 		print("Something went wrong when loading a background. %s" % name)
-		return {}
+		return null
 	return backgrounds[name]
 
 
-func get_prop(name: String):
-	if not props.has(name):
-		print("Something went wrong when loading a prop. %s" % name)
-		return {}
-	return props[name]
+func get_character_sprite(name: String, emotion: String):
+	if not characters.has(name):
+		push_error("Could not get character sprite with name: %s and emotion: %s" % [name, emotion])
+		return
+	
+	if !characters[name].emotions.empty():
+		return characters[name].emotions[emotion]
 
 
-func get_character(name: String, emotion: String=""):
+func get_character(name: String):
 	if not characters.has(name):
 		print("Something went wrong when loading a character. %s" % name)
-		return {}
+		return
 	
-	if emotion.empty():
-		return characters[name]
-	
-	if not characters[name].emotions.empty():
-		return characters[name].emotions[emotion]
+	return characters[name]
 
 
 func get_dialog(name: String):
 	if not dialogs.has(name):
 		print("Something went wrong when loading a dialog. %s" % name)
-		return {}
+		return
 	return dialogs[name]
 
 
 func get_font(name: String):
 	if not fonts.has(name):
 		print("Something went wrong when loading a font. %s" % name)
-		return {}
+		return
 	return fonts[name] as DynamicFont
 
 

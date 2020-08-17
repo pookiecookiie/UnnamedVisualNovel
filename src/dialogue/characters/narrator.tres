@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-display_name = "narrador"
+display_name = "Narrador"
 backstory = "He is the narrator."
 name_color = Color( 0.980392, 0.980392, 0.980392, 1 )
 name_font = "raleway"

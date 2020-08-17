@@ -34,7 +34,6 @@ run/main_scene="res://src/dialogue/Dialog.tscn"
 Debug="*res://src/singletons/Debug.gd"
 Cache="*res://src/singletons/Cache.gd"
 Loader="*res://src/singletons/Loader.gd"
-DialogDatabase="*res://src/singletons/DialogDatabase.gd"
 
 [display]
 

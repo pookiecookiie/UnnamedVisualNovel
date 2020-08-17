@@ -5,7 +5,6 @@
         "characters": [
             {"name": "Testo", "emotion": "excited"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
@@ -15,7 +14,6 @@
         "characters": [
             {"name": "Testo", "emotion": "neutral"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
@@ -25,7 +23,6 @@
         "characters": [
             {"name": "Testo", "emotion": "happy"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
@@ -35,7 +32,6 @@
         "characters": [
             {"name": "Testo", "emotion": "happy"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
@@ -45,7 +41,6 @@
         "characters": [
             {"name": "Testo", "emotion": "neutral"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
@@ -55,7 +50,6 @@
         "characters": [
             {"name": "Testo", "emotion": "excited"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
@@ -66,7 +60,6 @@
             {"name": "Testo", "emotion": "neutral"},
             {"name": "Testa", "emotion": "excited"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
@@ -77,7 +70,6 @@
             {"name": "Testo", "emotion": "neutral"},
             {"name": "Testa", "emotion": "happy"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
@@ -88,7 +80,6 @@
             {"name": "Testo", "emotion": "neutral"},
             {"name": "Testa", "emotion": "blushing"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     },
@@ -99,7 +90,6 @@
             {"name": "Testo", "emotion": "neutral"},
             {"name": "Testa", "emotion": "neutral"}
         ],
-        "props": [],
         "background": "Club",
         "text_speed": 1
     }
