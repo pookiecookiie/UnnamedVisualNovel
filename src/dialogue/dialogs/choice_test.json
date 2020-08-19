@@ -9,13 +9,15 @@
         "text_speed": 1
     },
     "001": {
+        "type": "question",
         "name": "narrator",
-        "title": "Escolha uma opção!",
-        "question": true,
+        "background": "Club",
+        "characters": [
+            {"name": "narrator", "emotion": ""}
+        ],
         "choices": [
             {"title": "OPÇÃO 1", "choice": "choice_1"},
             {"title": "OPÇÃO 2", "choice": "choice_2"}
-        ],
-        "background": "Club"
+        ]
     }
 }

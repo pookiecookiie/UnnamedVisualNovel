@@ -18,6 +18,15 @@
         "text_speed": 1
     },
     "002": {
-        "next": "choice_test"
+        "type": "question",
+        "name": "Testa",
+        "characters": [
+            {"name": "Testa", "emotion": "neutral"}
+        ],
+        "background": "Club",
+        "choices": [
+            {"title": "Go back to the main menu", "choice": "_go_back_to_main_menu"},
+            {"title": "Go back to the start of the dialog", "choice": "choice_test"}
+        ]
     }
 }

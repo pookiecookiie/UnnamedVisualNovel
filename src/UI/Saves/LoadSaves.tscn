@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/Raleway/static/Raleway-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/UI/Saves/Saves.gd" type="Script" id=2]
-[ext_resource path="res://src/UI/BackButton/BackButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/UI/Saves/Save.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/UI/Saves/LoadSavesList.gd" type="Script" id=5]
+[ext_resource path="res://src/UI/main_menu/main_menu_button/MainMenuButtonDark.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Saves/SavesList.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -78,7 +77,6 @@ __meta__ = {
 }
 
 [node name="HBox" type="HBoxContainer" parent="Panel/OuterMargin/VBox/SavesPanel/SavesMargin/SavesList"]
-margin_right = 256.0
 margin_bottom = 162.0
 rect_min_size = Vector2( 0, 162 )
 custom_constants/separation = 16
@@ -88,10 +86,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Save" parent="Panel/OuterMargin/VBox/SavesPanel/SavesMargin/SavesList/HBox" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 256.0
-margin_bottom = 162.0
-
-[node name="BackButton" parent="." instance=ExtResource( 3 )]
+[node name="Back" parent="." instance=ExtResource( 3 )]
+scene_path = "res://src/UI/main_menu/MainMenu.tscn"

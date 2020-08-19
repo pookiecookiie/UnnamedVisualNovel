@@ -1,0 +1,6 @@
+{
+    "001": {
+        "type": "do",
+        "action": "go_back_to_main_menu"
+    }
+}

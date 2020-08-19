@@ -18,6 +18,34 @@
         "text_speed": 1
     },
     "002": {
+        "type": "question",
+        "name": "Testo",
+        "characters": [
+            {"name": "Testo", "emotion": "neutral"}
+        ],
+        "background": "Club",
+        "choices": [
+            {"title": "Go back to the main menu", "choice": "_go_back_to_main_menu"},
+            {"title": "Go back to the start of the dialog", "choice": "choice_test"},
+            {"title": "Continue dialog", "choice": ""}
+        ]
+    },
+    "003": {
+        "type": "do",
+        "action": "animation",
+        "animation": "some_time_later"
+    },
+    "004": {
+        "name": "Testo",
+        "text": "Não foi uma animação legal? :P",
+        "characters": [
+            {"name": "Testo", "emotion": "neutral"}
+        ],
+        "background": "Club",
+        "text_speed": 1
+    },
+    "005": {
+        "type": "go_to",
         "next": "choice_test"
     }
 }

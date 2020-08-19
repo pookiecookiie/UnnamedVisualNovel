@@ -34,8 +34,8 @@ run/main_scene="res://src/UI/main_menu/MainMenu.tscn"
 Debug="*res://src/singletons/Debug.gd"
 Cache="*res://src/singletons/Cache.gd"
 Loader="*res://src/singletons/Loader.gd"
-SceneManager="*res://src/singletons/SceneManager/SceneManager.tscn"
 UI="*res://src/singletons/UI/UI.tscn"
+SceneManager="*res://src/singletons/SceneManager.gd"
 
 [display]
 

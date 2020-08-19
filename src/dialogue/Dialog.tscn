@@ -132,6 +132,7 @@ __meta__ = {
 }
 
 [node name="DialogEndedIndicator" type="TextureRect" parent="Text"]
+visible = false
 margin_left = 694.0
 margin_top = 76.0
 margin_right = 727.0

@@ -35,18 +35,18 @@ func _process(_delta):
 		if DialogAnimator.is_animating:
 			DialogAnimator.skip_interpolation()
 		else:
-			DialogPlayer.next()
+			if not DialogPlayer.current.has("type"):
+				DialogPlayer.next()
+			elif not (DialogPlayer.current.type == "question" or "do"):
+				DialogPlayer.next()
 
 
 func _on_dialog_updated(dialog):
-	if dialog.has("next"):
-		var next_dialog = Loader.get_dialog(dialog.next)
-		DialogPlayer.start(next_dialog)
-	elif dialog.has("question"):
-		handle_question(dialog)
+	if dialog.has("type"):
+		handle_dialog_type(dialog)
 	else:
 		handle_conversation(dialog)
-	
+
 
 func _on_dialog_completed():
 	pass
@@ -65,13 +65,24 @@ func _on_animator_completed():
 	$Text/DialogEndedIndicator.visible = !$Text/DialogEndedIndicator
 
 
+func handle_dialog_type(dialog):
+	if dialog.type == "go_to":
+		var next_dialog = Loader.get_dialog(dialog.next)
+		DialogPlayer.start(next_dialog)
+	
+	if dialog.type == "question":
+		handle_question(dialog)
+	
+	if dialog.type == "do":
+		handle_do(dialog)
+	
+
 func handle_conversation(dialog):
 	# Remove previous characters and Choices that might be still here
 	clear_lists()
 	
 	# Character talking
 	var speaker = Loader.get_character(dialog.name)
-	var is_narrator = (dialog.name == NARRATOR)
 	
 	Text.add_font_override("normal_font", Loader.get_font(speaker.text_font))
 	Text.add_color_override("default_color", speaker.text_color)
@@ -79,14 +90,17 @@ func handle_conversation(dialog):
 	NameEdit.add_color_override("font_color_uneditable", speaker.name_color)
 	
 	for character in dialog.characters:
-		if not is_narrator:
+		if not dialog.name == NARRATOR:
 			var sprite = Loader.get_character_sprite(character.name, character.emotion)
 			var new_character = CharacterScene.instance()
 			new_character.set_texture(sprite)
 			CharactersContainer.add_child(new_character)
-		
-		
-		
+	
+	if dialog.name == NARRATOR:
+		NameEdit.hide()
+	else:
+		NameEdit.show()
+	
 	Background.texture = Loader.get_background(dialog.background)
 	NameEdit.text = speaker.display_name
 	Text.bbcode_text = dialog.text
@@ -97,6 +111,7 @@ func handle_conversation(dialog):
 
 func handle_question(dialog):
 	clear_lists()
+	
 	Text.hide()
 	Choices.show()
 	
@@ -110,19 +125,41 @@ func handle_question(dialog):
 		choice_button.text = choice.title
 		Choices.add_child(choice_button)
 	
-	NameEdit.add_font_override("font", Loader.get_font(speaker.name_font))
-	NameEdit.add_color_override("font_color_uneditable", speaker.name_color)
+	for character in dialog.characters:
+		if not character.name == NARRATOR:
+			var sprite = Loader.get_character_sprite(character.name, character.emotion)
+			var new_character = CharacterScene.instance()
+			new_character.set_texture(sprite)
+			CharactersContainer.add_child(new_character)
 	
-	NameEdit.text = dialog.title
+	# Hide it here, and show it when we make a choice
+	NameEdit.hide()
 	Background.texture = Loader.get_background(dialog.background)
+
+
+func handle_do(dialog):
+	if dialog.action == "go_back_to_main_menu":
+		SceneManager.change_scene("res://src/UI/main_menu/MainMenu.tscn", "fade_black")
+	if dialog.action == "animation":
+		UI.animation_player.play(dialog.animation)
+		yield(UI.animation_player,"animation_finished")
+		DialogPlayer.next()
+		
 	
 
 func make_choice(choice):
-	var next_scene = Loader.get_dialog(choice)
 	Text.show()
 	Choices.hide()
+	NameEdit.show()
+	
+	if choice.empty():
+		DialogPlayer.next()
+		return
+	
 	DialogPlayer.reset()
 	DialogAnimator.reset()
+	
+	var next_scene = Loader.get_dialog(choice)
 	DialogPlayer.start(next_scene)
 
 

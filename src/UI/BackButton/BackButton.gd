@@ -1,4 +1,4 @@
-extends Control
+extends Button
 
 
 # Declare member variables here. Examples:
@@ -8,8 +8,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Back.connect("pressed", self, "_on_back_pressed")
+	connect("pressed", self, "_on_pressed")
 
+func _on_pressed():
+	print("Go Back")
+	SceneManager.go_back()
 
-func _on_back_pressed():
-	SceneManager.change_scene_from_button($Back)

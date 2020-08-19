@@ -3,31 +3,30 @@ extends Node
 class_name DialoguePlayer
 
 signal updated(data) 
-signal finished(next)
+signal finished
 
 var _conversation: Array = []
 var _index_current: int = 0
+var current
 
 
 func start(dialogue_dict):
 	_conversation = dialogue_dict.values()
 	_index_current = 0
-	emit_signal("updated", _conversation[0])
+	current = _conversation[0]
+	emit_signal("updated", current)
 
 
 func next():
 	if _index_current >= _conversation.size()-1:
-		var curr = _conversation[_index_current]
-		if curr.has("next"):
-			emit_signal("finished", curr.next)
-		else:
-			emit_signal("finished", "")
 		return
 	
 	_index_current += 1
-	emit_signal("updated", _conversation[_index_current])
+	current = _conversation[_index_current]
+	emit_signal("updated", current)
 
 
 func reset():
 	_conversation = []
 	_index_current = 0
+	current = null

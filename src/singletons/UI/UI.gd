@@ -3,6 +3,7 @@ extends Control
 
 onready var confirmation_dialog = load("res://src/UI/ConfirmAction/ConfirmAction.tscn")
 
+onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,3 +17,4 @@ func ask_confirmation(confirmation_text: String):
 	confirmation_instance.dialog_text = confirmation_text
 	confirmation_instance.popup_centered(Vector2(100, 100))
 	return confirmation_instance
+
