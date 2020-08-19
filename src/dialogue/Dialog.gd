@@ -13,7 +13,6 @@ onready var Text = $Text/Box/Margin/Text
 onready var DialogPlayer = $DialogPlayer
 onready var DialogAnimator = $DialogAnimator
 onready var CharactersContainer = $CharactersContainer
-onready var PropsContainer = $PropsContainer
 onready var Choices = $Text/Box/Margin/Choices
 
  
@@ -40,7 +39,6 @@ func _process(_delta):
 
 
 func _on_dialog_updated(dialog):
-	print("updated dialog")
 	if dialog.has("next"):
 		var next_dialog = Loader.get_dialog(dialog.next)
 		DialogPlayer.start(next_dialog)

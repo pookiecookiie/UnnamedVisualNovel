@@ -29,22 +29,22 @@ func _ready():
 	parent = get_parent()
 
 
-func _on_tween_start(object, key):
+func _on_tween_start(_object, _key):
 	pass
 
 
-func _on_tween_step(object, key, elapsed, value):
+func _on_tween_step(_object, _key, _elapsed, _value):
 	pass
 
 
 func _on_tween_completed(object, key):
-	print("Finished  %s" % key)
 	$Tween.reset(object, key)
 	reset()
 	emit_signal("finished")
 
 
-
+# Animate some text towards some other text, letter by letter
+# Not necessary for this game i believe, but here is the reminder if we need it
 func animate():
 	pass
 

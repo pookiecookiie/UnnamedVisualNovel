@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Montserrat/Montserrat-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/menu_background.png" type="Texture" id=2]
+[ext_resource path="res://src/UI/main_menu/main_menu_button/MainMenuButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/main_menu/MenuManager.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="VBox"]
+margin_right = 1024.0
+margin_bottom = 233.0
+custom_constants/margin_top = 32
+custom_constants/margin_left = 64
+
+[node name="GameName" type="Label" parent="VBox/Margin"]
+margin_left = 64.0
+margin_top = 32.0
+margin_right = 1024.0
+margin_bottom = 233.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Unnamed
+Visual Novel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+margin_top = 237.0
+margin_right = 1024.0
+margin_bottom = 581.0
+size_flags_vertical = 2
+alignment = 2
+
+[node name="Margin" type="MarginContainer" parent="VBox/HBox"]
+margin_left = 775.0
+margin_right = 1024.0
+margin_bottom = 344.0
+custom_constants/margin_right = 64
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
+
+[node name="Menus" type="VBoxContainer" parent="VBox/HBox/Margin"]
+margin_right = 185.0
+margin_bottom = 344.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 185.0
+margin_bottom = 54.0
+text = "Start"
+scene_path = "res://src/dialogue/Dialog.tscn"
+
+[node name="Continue" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 58.0
+margin_right = 185.0
+margin_bottom = 112.0
+disabled = true
+text = "Continue"
+scene_path = "res://src/dialogue/Dialog.tscn"
+
+[node name="Saves" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 116.0
+margin_right = 185.0
+margin_bottom = 170.0
+text = "Saves"
+scene_path = "res://src/UI/Saves/Saves.tscn"
+
+[node name="Options" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 174.0
+margin_right = 185.0
+margin_bottom = 228.0
+text = "Options"
+scene_path = "res://src/UI/Options/Options.tscn"
+
+[node name="Credits" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 232.0
+margin_right = 185.0
+margin_bottom = 286.0
+text = "Credits"
+scene_path = "res://src/UI/Credits/Credits.tscn"
+
+[node name="Quit" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 290.0
+margin_right = 185.0
+margin_bottom = 344.0
+text = "Quit"

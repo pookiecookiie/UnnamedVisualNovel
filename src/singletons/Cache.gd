@@ -8,23 +8,12 @@ signal saved(data, key)
 signal cache_saved(data)
 signal cache_loaded(data)
 
-# Debug
-signal error(message, from)
-signal warn(message, from)
-signal info(message, from)
-signal success(message, from)
-
 func _ready():
 	connect("stored", self, "_on_data_stored")
 	connect("saved", self, "_on_data_saved")
 	connect("cache_saved", self, "_on_cache_saved")
 	connect("cache_loaded", self, "_on_cache_loaded")
-	
-	# Debug
-	connect("error", Debug, "_on_error")
-	connect("warn", Debug, "_on_warn")
-	connect("info", Debug, "_on_info")
-	connect("success", Debug, "_on_success")
+
 	
 	# Read from the cache file
 	cache = load_cache()
@@ -36,20 +25,23 @@ func _exit_tree():
 
 
 func _on_data_stored(data, key):
-	emit_signal("info", "Data SAVED\nKey: " + str(key) + "\nData: " + str(data), "Cache")
+	printt("Data stored: %s" % data, "Key: %s" % key)
 
 
 func _on_data_saved(data, key):
-	emit_signal("info", "Data LOADED\nKey: " + str(key) + "\nData: " + str(data), "Cache")
+	printt("Data Saved: %s" % data, "Key: %s" % key)
 
 
 func _on_cache_saved(data):
-	emit_signal("info", "Cache SAVED\nCache: " + str(data), "Cache")
+	printt("Cache saved, Data: %s" % data)
 
 
 func _on_cache_loaded(data):
-	emit_signal("info", "Cache LOADED\nCache: " + str(data), "Cache")
+	print("Loaded Data: %s" % data)
 
+
+func has_cache():
+	return not cache.empty()
 
 func store(key, data:Dictionary):
 	cache[key] = data
@@ -58,8 +50,8 @@ func store(key, data:Dictionary):
 
 
 func save_cache():
-	if !cache:
-		emit_signal("error", "Couldn't save cache", "Cache")
+	if not cache:
+		push_error("Could not save cache, because cache does not exist")
 		return
 	
 	var cache_file = File.new()
@@ -74,7 +66,7 @@ func load_cache():
 	var cached_data = {}
 	var cache_file = File.new()
 	if not cache_file.file_exists("user://cache.save"):
-		emit_signal("warn", "No Cache file found", "Cache")
+		push_warning("No cache file found.")
 		return cached_data # We don't have a save to load.
 	
 	# Load the file line by line and process that dictionary to restore
@@ -87,9 +79,7 @@ func load_cache():
 	
 	if !cached_data:
 		# If for some reason Null gets saved to the cache
-		# just make it an empty object
-		emit_signal("warn", "Cache is broken or empty. " + str(cached_data), "Cache")
-		cached_data = {}
-	
+		# Or a broken JSON file
+		push_warning("Cache is broken or empty. %s" % str(cached_data))
 	emit_signal("cache_loaded", cached_data)
 	return cached_data
