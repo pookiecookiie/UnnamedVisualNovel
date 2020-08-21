@@ -1,17 +1,34 @@
 extends Node
 
 signal scene_changed()
+signal receive_argument()
+
 
 onready var MainMenu = preload("res://src/UI/main_menu/MainMenu.tscn")
 onready var Saves = preload("res://src/UI/Saves/Saves.tscn")
 onready var Options = preload("res://src/UI/Options/Options.tscn")
 onready var Credits = preload("res://src/UI/Credits/Credits.tscn")
 
-onready var Introduction = preload("res://src/dialogue/Dialog.tscn")
+onready var Dialog = "res://src/dialogue/Dialog.tscn"
 
 
 var current_scene_index: int = 0
 var scene_history: Array = ["res://src/UI/main_menu/MainMenu.tscn"]
+
+func _ready():
+	#connect("scene_changed", self, "_on_scene_changed")
+	pass
+
+
+func send_arguments(arguments: Array):
+	for argument in arguments:
+		handle_argument(argument)
+
+
+func handle_argument(argument):
+	yield(self, "scene_changed")
+	emit_signal("receive_argument", argument)
+
 
 
 func change_scene(scene_path: String, animation: String, delay: float=0.5):

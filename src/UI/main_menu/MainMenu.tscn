@@ -102,7 +102,7 @@ margin_top = 116.0
 margin_right = 185.0
 margin_bottom = 170.0
 text = "Saves"
-scene_path = "res://src/UI/Saves/Saves.tscn"
+scene_path = "res://src/UI/Saves/LoadSaves.tscn"
 
 [node name="Options" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
 anchor_right = 0.0

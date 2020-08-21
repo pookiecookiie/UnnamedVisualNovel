@@ -2,7 +2,6 @@ extends Node
 
 var debug : bool = false
 
-
 func _on_error(message, from:String="DEBUG"):
 	if !debug:
 		return

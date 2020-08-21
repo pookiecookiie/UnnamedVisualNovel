@@ -36,6 +36,7 @@ Cache="*res://src/singletons/Cache.gd"
 Loader="*res://src/singletons/Loader.gd"
 UI="*res://src/singletons/UI/UI.tscn"
 SceneManager="*res://src/singletons/SceneManager.gd"
+SaveManager="*res://tests/SaveManager.gd"
 
 [display]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://src/UI/Saves/Save.gd" type="Script" id=1]
+[ext_resource path="res://tests/Save.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/add-24px.svg" type="Texture" id=2]
 [ext_resource path="res://assets/icons/clear-24px.svg" type="Texture" id=3]
 [ext_resource path="res://assets/icons/create-24px.svg" type="Texture" id=4]
@@ -86,6 +86,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Delete" type="TextureButton" parent="VBoxContainer/TextureButton"]
+visible = false
+anchor_left = 0.902344
+anchor_right = 1.0
+anchor_bottom = 0.141975
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
 visible = false
 margin_top = 132.0
@@ -103,15 +114,4 @@ caret_blink = true
 caret_blink_speed = 0.5
 __meta__ = {
 "_edit_use_anchors_": false
-}
-
-[node name="Close" type="TextureButton" parent="."]
-visible = false
-anchor_left = 0.902344
-anchor_right = 1.0
-anchor_bottom = 0.141975
-texture_normal = ExtResource( 3 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
 }

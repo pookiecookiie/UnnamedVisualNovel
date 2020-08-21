@@ -10,10 +10,10 @@ onready var ChoiceScene = preload("res://src/dialogue/Choice.tscn")
 onready var Background = $Background
 onready var NameEdit = $Text/NameEdit
 onready var Text = $Text/Box/Margin/Text
-onready var DialogPlayer = $DialogPlayer
 onready var DialogAnimator = $DialogAnimator
 onready var CharactersContainer = $CharactersContainer
 onready var Choices = $Text/Box/Margin/Choices
+onready var DialogPlayer = $DialogPlayer
 
  
 
@@ -25,9 +25,9 @@ func _ready():
 	DialogPlayer.connect("updated", self, "_on_dialog_updated")
 	DialogPlayer.connect("finished", self, "_on_dialog_completed")
 	
-	var initial_dialog = Loader.get_dialog("choice_test")
-	DialogPlayer.start(initial_dialog)
-	
+	#var initial_dialog = Loader.get_dialog("choice_test")
+	#DialogPlayer.start(initial_dialog)
+	SceneManager.connect("receive_argument", self, "_on_receive_argument")
 
 
 func _process(_delta):
@@ -39,6 +39,10 @@ func _process(_delta):
 				DialogPlayer.next()
 			elif not (DialogPlayer.current.type == "question" or "do"):
 				DialogPlayer.next()
+
+
+func _on_receive_argument(dialog):
+	DialogPlayer.start(Loader.get_dialog(dialog))
 
 
 func _on_dialog_updated(dialog):

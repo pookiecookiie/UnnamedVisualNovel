@@ -25,25 +25,27 @@ func _exit_tree():
 
 
 func _on_data_stored(data, key):
-	printt("Data stored: %s" % data, "Key: %s" % key)
+	print("Data stored: %s" % [data])
+	print("Key: %s" % [key])
 
 
 func _on_data_saved(data, key):
-	printt("Data Saved: %s" % data, "Key: %s" % key)
+	print("Data Saved: %s" % [data])
+	print("Key: %s" % [key])
 
 
 func _on_cache_saved(data):
-	printt("Cache saved, Data: %s" % data)
+	print("Cache saved, Data: %s" % [data])
 
 
 func _on_cache_loaded(data):
-	print("Loaded Data: %s" % data)
+	print("Loaded Data: %s" % [data])
 
 
 func has_cache():
 	return not cache.empty()
 
-func store(key, data:Dictionary):
+func store(key, data):
 	cache[key] = data
 	
 	emit_signal("stored", data, key)
