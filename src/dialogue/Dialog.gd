@@ -7,6 +7,10 @@ const NARRATOR = "narrator"
 onready var CharacterScene = preload("res://src/dialogue/characters/Chara.tscn")
 onready var ChoiceScene = preload("res://src/dialogue/Choice.tscn")
 
+signal started_do()
+signal finished_do()
+
+onready var dialog_box = $Text
 onready var Background = $Background
 onready var NameEdit = $Text/NameEdit
 onready var Text = $Text/Box/Margin/Text
@@ -22,12 +26,15 @@ func _ready():
 	DialogAnimator.connect("updated", self, "_on_animator_updated")
 	DialogAnimator.connect("finished", self, "_on_animator_completed")
 	
+	DialogPlayer.connect("started", self, "_on_dialog_started")
 	DialogPlayer.connect("updated", self, "_on_dialog_updated")
 	DialogPlayer.connect("finished", self, "_on_dialog_completed")
 	
-	#var initial_dialog = Loader.get_dialog("choice_test")
-	#DialogPlayer.start(initial_dialog)
-	SceneManager.connect("receive_argument", self, "_on_receive_argument")
+	UI.animation_player.play("fade_black")
+	var dialog = ProgressManager.current_dialog
+	var dialog_index = ProgressManager.dialog_index
+	yield(SceneManager, "scene_changed")
+	DialogPlayer.start(dialog, dialog_index)
 
 
 func _process(_delta):
@@ -41,8 +48,13 @@ func _process(_delta):
 				DialogPlayer.next()
 
 
-func _on_receive_argument(dialog):
-	DialogPlayer.start(Loader.get_dialog(dialog))
+func _on_dialog_started():
+	UI.animation_player.play_backwards("fade_black")
+	Background.visible = true
+	CharactersContainer.visible = true
+	dialog_box.visible = true
+	yield(UI.animation_player, "animation_finished")
+	
 
 
 func _on_dialog_updated(dialog):
@@ -53,8 +65,9 @@ func _on_dialog_updated(dialog):
 
 
 func _on_dialog_completed():
-	pass
-
+	Background.visible = false
+	CharactersContainer.visible = false
+	dialog_box.visible = false
 
 
 func _on_animator_started():
@@ -71,8 +84,7 @@ func _on_animator_completed():
 
 func handle_dialog_type(dialog):
 	if dialog.type == "go_to":
-		var next_dialog = Loader.get_dialog(dialog.next)
-		DialogPlayer.start(next_dialog)
+		DialogPlayer.start(dialog.next)
 	
 	if dialog.type == "question":
 		handle_question(dialog)
@@ -142,11 +154,19 @@ func handle_question(dialog):
 
 
 func handle_do(dialog):
-	if dialog.action == "go_back_to_main_menu":
-		SceneManager.change_scene("res://src/UI/main_menu/MainMenu.tscn", "fade_black")
 	if dialog.action == "animation":
+		Background.visible = false
+		CharactersContainer.visible = false
+		dialog_box.visible = false
+		# Weird animation glitch here, made backgroudn black to hide it
+		UI.animation_player.play("fade_black")
+		yield(UI.animation_player,"animation_finished")
+		Background.texture = Loader.get_background(dialog.background)
 		UI.animation_player.play(dialog.animation)
 		yield(UI.animation_player,"animation_finished")
+		Background.visible = true
+		CharactersContainer.visible = true
+		dialog_box.visible = true
 		DialogPlayer.next()
 		
 	

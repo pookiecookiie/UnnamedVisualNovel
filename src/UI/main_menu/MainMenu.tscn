@@ -56,14 +56,14 @@ __meta__ = {
 [node name="HBox" type="HBoxContainer" parent="VBox"]
 margin_top = 237.0
 margin_right = 1024.0
-margin_bottom = 581.0
+margin_bottom = 523.0
 size_flags_vertical = 2
 alignment = 2
 
 [node name="Margin" type="MarginContainer" parent="VBox/HBox"]
 margin_left = 775.0
 margin_right = 1024.0
-margin_bottom = 344.0
+margin_bottom = 286.0
 custom_constants/margin_right = 64
 custom_constants/margin_top = 0
 custom_constants/margin_left = 0
@@ -71,7 +71,7 @@ custom_constants/margin_bottom = 0
 
 [node name="Menus" type="VBoxContainer" parent="VBox/HBox/Margin"]
 margin_right = 185.0
-margin_bottom = 344.0
+margin_bottom = 286.0
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -95,37 +95,28 @@ disabled = true
 text = "Continue"
 scene_path = "res://src/dialogue/Dialog.tscn"
 
-[node name="Saves" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
+[node name="Options" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 116.0
 margin_right = 185.0
 margin_bottom = 170.0
-text = "Saves"
-scene_path = "res://src/UI/Saves/LoadSaves.tscn"
-
-[node name="Options" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 174.0
-margin_right = 185.0
-margin_bottom = 228.0
 text = "Options"
 scene_path = "res://src/UI/Options/Options.tscn"
 
 [node name="Credits" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 232.0
+margin_top = 174.0
 margin_right = 185.0
-margin_bottom = 286.0
+margin_bottom = 228.0
 text = "Credits"
 scene_path = "res://src/UI/Credits/Credits.tscn"
 
 [node name="Quit" parent="VBox/HBox/Margin/Menus" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 290.0
+margin_top = 232.0
 margin_right = 185.0
-margin_bottom = 344.0
+margin_bottom = 286.0
 text = "Quit"

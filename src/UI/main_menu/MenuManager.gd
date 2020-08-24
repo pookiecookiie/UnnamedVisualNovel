@@ -12,37 +12,35 @@ onready var Introduction = load("res://src/dialogue/Dialog.tscn")
 func _ready():
 	$Start.connect("pressed", self, "_on_start_pressed")
 	$Continue.connect("pressed", self, "_on_continue_pressed")
-	$Saves.connect("pressed", self, "_on_saves_pressed")
 	$Options.connect("pressed", self, "_on_options_pressed")
 	$Credits.connect("pressed", self, "_on_credits_pressed")
 	$Quit.connect("pressed", self, "_on_quit_pressed")
 	
-	$Continue.disabled = not Cache.has_cache()
+	$Continue.disabled = not Cache.has_progress()
 
 
 func _on_start_pressed():
-	if Cache.has_cache():
-		var dialog = UI.ask_confirmation("Are you sure you want to start ALL OVER?\n NOTE: You DO have a save.")
+	if Cache.has_progress():
+		var dialog = UI.ask_confirmation("Are you sure you want to start ALL OVER?\n NOTE: You DO have progress.")
 		var confirmed = yield(dialog, "answered")
 		
 		if confirmed:
+			ProgressManager.start()
 			# Start a new game
 			SceneManager.change_scene_from_button($Start)
 		else:
-			print("Not doing anything actually")
-
+			# Don't add this to the progress manager...
+			return
 	else:
-		# we do not have cache
+		ProgressManager.start()
+		# we do not have cache, so it's ok.
 		SceneManager.change_scene_from_button($Start)
+	
 	
 
 
 func _on_continue_pressed():
 	SceneManager.change_scene_from_button($Continue)
-
-
-func _on_saves_pressed():
-	SceneManager.change_scene_from_button($Saves)
 
 
 func _on_options_pressed():

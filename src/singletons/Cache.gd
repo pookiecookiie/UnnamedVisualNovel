@@ -42,8 +42,8 @@ func _on_cache_loaded(data):
 	print("Loaded Data: %s" % [data])
 
 
-func has_cache():
-	return not cache.empty()
+func has_progress():
+	return cache.has("current_dialog")
 
 func store(key, data):
 	cache[key] = data

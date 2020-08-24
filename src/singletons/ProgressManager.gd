@@ -1,15 +1,12 @@
 extends Node
 
-
-signal progress_saved()
-signal progress_loaded(current_dialog)
-signal save_saved()
-signal save_loaded(save)
+signal progress_saved(progress)
+signal progress_loaded(progress)
 
 
-var progress: int = 0 # porcentage, i don't know how to calculate it yet tho
-var current_dialog: String = "introduction"
-var saves: Array = []
+# Introduction should be the first dialog the player ever sees, no matter what
+var current_dialog: String = ""
+var dialog_index: int = 0
 
 
 func _ready():
@@ -19,38 +16,26 @@ func _exit_tree():
 	cache_data()
 
 
-func update_save(new_save):
-	self.saves[new_save.index] = new_save
-
-func store_save(save: Dictionary):
-	if save.index < 0:
-		print("Ignoring -1")
-		return
-	
-	print("Stored save %s" % save)
-	self.saves.append(save)
+func start():
+	current_dialog = "introduction"
+	dialog_index = 0
 
 
-func remove_save(index: int):
-	self.saves.remove(index)
-
-
-func load_save(index: int):
-	if index < 0:
-		print("Trying to load invalid save.")
-		return
-	
-	print("Loaded Save %s" % index)
-	return saves[index]
+func save_progress(progress):
+	current_dialog = progress.current_dialog
+	dialog_index = progress.dialog_index
 
 
 func cache_data():
-	Cache.store("current_dialog", current_dialog)
-	Cache.store("saves", saves)
+	if not current_dialog.empty():
+		Cache.store("current_dialog", current_dialog)
+		Cache.store("dialog_index", dialog_index)
+		emit_signal("progress_saved", current_dialog)
 
 
 func load_cached_data():
-	if Cache.cache.has("current_dialog") and Cache.cache.has("saves"):
+	if Cache.cache.has("current_dialog") and Cache.cache.has("dialog_index"):
 		current_dialog = Cache.cache.current_dialog
-		saves = Cache.cache.saves
+		dialog_index = Cache.cache.dialog_index
+		emit_signal("progress_loaded", current_dialog)
 

@@ -36,6 +36,7 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -45,6 +46,7 @@ __meta__ = {
 }
 
 [node name="CharactersContainer" type="HBoxContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -52,6 +54,7 @@ __meta__ = {
 }
 
 [node name="Text" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 128.0

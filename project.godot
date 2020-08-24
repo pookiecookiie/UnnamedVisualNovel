@@ -31,12 +31,11 @@ run/main_scene="res://src/UI/main_menu/MainMenu.tscn"
 
 [autoload]
 
-Debug="*res://src/singletons/Debug.gd"
 Cache="*res://src/singletons/Cache.gd"
 Loader="*res://src/singletons/Loader.gd"
 UI="*res://src/singletons/UI/UI.tscn"
 SceneManager="*res://src/singletons/SceneManager.gd"
-SaveManager="*res://tests/SaveManager.gd"
+ProgressManager="*res://src/singletons/ProgressManager.gd"
 
 [display]
 
@@ -78,4 +77,4 @@ file_logging/enable_file_logging=true
 [rendering]
 
 quality/2d/use_pixel_snap=true
-environment/default_environment="res://assets/default_env.tres"
+environment/default_clear_color=Color( 0, 0, 0, 1 )

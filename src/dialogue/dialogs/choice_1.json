@@ -33,7 +33,8 @@
     "003": {
         "type": "do",
         "action": "animation",
-        "animation": "some_time_later"
+        "animation": "some_time_later",
+        "background": "Club"
     },
     "004": {
         "name": "Testo",

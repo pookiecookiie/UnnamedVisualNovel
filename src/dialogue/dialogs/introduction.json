@@ -1,5 +1,11 @@
 {
     "000": {
+        "type": "do",
+        "action": "animation",
+        "animation": "introduction",
+        "background": "Club"
+    },
+    "001": {
         "name": "Testo",
         "text": "Hi! my name is [character name=Testo]Testo[/character]!",
         "characters": [
@@ -8,7 +14,7 @@
         "background": "Club",
         "text_speed": 1
     },
-    "001": {
+    "002": {
         "name": "Testo",
         "text": "I will be helping the dev with making sure that everything is working correctly, or if anything breaks i must tell him about it.",
         "characters": [
@@ -17,7 +23,7 @@
         "background": "Club",
         "text_speed": 1
     },
-    "002": {
+    "003": {
         "name": "Testo",
         "text": "I really like doing it, because it makes me feel so alive when i'm doing it, I actually love to help others!",
         "characters": [
@@ -26,7 +32,7 @@
         "background": "Club",
         "text_speed": 1
     },
-    "003": {
+    "004": {
         "name": "Testo",
         "text": "I'm happy to be able to do this for a living today.",
         "characters": [
@@ -35,7 +41,7 @@
         "background": "Club",
         "text_speed": 1
     },
-    "004": {
+    "005": {
         "name": "Testo",
         "text": "Anyway, I was introducing you to this demo, i'm sorry, sometimes i ramble a bit too much.",
         "characters": [
@@ -44,7 +50,7 @@
         "background": "Club",
         "text_speed": 1
     },
-    "005": {
+    "006": {
         "name": "Testo",
         "text": "I would like you to meet [character name=Testa]Testa[/character]. She is also going to be helping you along with me! Isn't it great?",
         "characters": [
@@ -53,7 +59,7 @@
         "background": "Club",
         "text_speed": 1
     },
-    "006": {
+    "007": {
         "name": "Testa",
         "text": "That is righty, [character name=Testo]Testo[/character]! I am going to be helping the dev as well, hope I can be useful, because I'm new here, please be patient with me!",
         "characters": [
@@ -63,7 +69,7 @@
         "background": "Club",
         "text_speed": 1
     },
-    "007": {
+    "008": {
         "name": "Testa",
         "text": "First of all, look at all my emotions, wink wink.",
         "characters": [
@@ -73,7 +79,7 @@
         "background": "Club",
         "text_speed": 1
     },
-    "008": {
+    "009": {
         "name": "Testa",
         "text": "Don't i look great? hahaha.",
         "characters": [
@@ -83,7 +89,7 @@
         "background": "Club",
         "text_speed": 1
     },
-    "009": {
+    "010": {
         "name": "Testa",
         "text": "Ok, i'll stop now. but as we know already, this is just a test conversation..",
         "characters": [
@@ -92,5 +98,9 @@
         ],
         "background": "Club",
         "text_speed": 1
+    },
+    "011": {
+        "type": "go_to",
+        "next": "choice_test"
     }
 }
